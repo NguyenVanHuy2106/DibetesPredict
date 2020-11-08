@@ -13,5 +13,8 @@ This is a template to be used in different projects made for my personal fronten
 
 ## Screenshots
 
+sidebar closed:
 ![navbar screenshot](https://i.ibb.co/4SL60rG/Screenshot-74.png)
+
+sidebar opened:
 ![sidebar-opened](https://i.ibb.co/HpCZYHt/Screenshot-75.png)
