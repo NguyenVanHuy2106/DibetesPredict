@@ -5,7 +5,7 @@ This is a template to be used in different projects made for my personal fronten
 
 ## How to run
 
-`'cd react-navbar-sidebar-template'`
+`cd react-navbar-sidebar-template`
 
 `npm install`
 
