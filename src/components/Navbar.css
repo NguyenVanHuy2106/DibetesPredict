@@ -1,6 +1,36 @@
-/* .menuButton {
-	margin-right: 1em;
-} */
+
+body {
+	background-color: #F8F8FF; /* Thay đổi màu nền của trang */
+	margin: 0; /* Đảm bảo không có khoảng cách mặc định */
+	font-family: Arial, sans-serif; /* Chọn phông chữ bạn thích */
+  }
+
 .title {
 	flex-grow: 1;
 }
+
+.drawer {
+	position: fixed;
+	top: 64px; /* Đặt vị trí dưới AppBar */
+	width: 240px; /* Bạn có thể thay đổi chiều rộng của Drawer */
+  }
+  .customAppBar {
+	background-color: #ffffff !important; /* Thay đổi màu theo ý muốn */
+  }
+
+  .toolbar {
+	display: flex; /* Sử dụng flex cho toolbar */
+	justify-content: space-between; /* Đẩy các phần tử ở hai bên */
+	align-items: center; /* Căn giữa theo chiều dọc */
+  }
+  .leftSection {
+	display: flex; /* Sử dụng flex cho phần bên trái */
+	align-items: center; /* Căn giữa theo chiều dọc */
+  }
+  .titleImg {
+	height: 50px; /* Điều chỉnh chiều cao nếu cần */
+	margin-left: 10px; /* Lề trái cho hình ảnh */
+  }
+  .loginButton {
+	margin-left: auto; /* Đẩy nút Login sang bên phải */
+  }
