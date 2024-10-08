@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Tạo instance của axios
 const axiosInstance = axios.create({
-  baseURL: "https://api-predict.tinakids.vn/", // Domain API mới
+  baseURL: "https://api-predict.tinakids.vn/api/", // Domain API mới
   timeout: 300000, // Thời gian chờ request
 });
 
