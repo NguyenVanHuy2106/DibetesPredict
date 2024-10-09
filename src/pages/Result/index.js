@@ -72,7 +72,7 @@ const Result = () => {
         </Typography>
         <Typography
           variant="subtitle1"
-          style={{ fontSize: "0.775rem", color: "#757575" }}
+          style={{ fontSize: "1rem", color: "#757575" }}
         >
           Based on the information provided, our model predicts your diabetes
           risk.
@@ -83,7 +83,9 @@ const Result = () => {
             paddingBottom: 5,
           }}
         >
-          <FiberManualRecordIcon style={{ height: 10, width: 10 }} />
+          <FiberManualRecordIcon
+            style={{ height: 10, width: 10, paddingRight: 10 }}
+          />
           Risk Level: <strong> {dataResult.message}</strong>
         </div>
         <div
@@ -91,7 +93,9 @@ const Result = () => {
             paddingTop: 5,
           }}
         >
-          <FiberManualRecordIcon style={{ height: 10, width: 10 }} />
+          <FiberManualRecordIcon
+            style={{ height: 10, width: 10, paddingRight: 10 }}
+          />
           Prediction Confidence: {dataResult.accuracy}%
         </div>
 
@@ -136,6 +140,7 @@ const Result = () => {
                     display: "flex",
                     alignItems: "center",
                     marginBottom: 10,
+                    textAlign: "justify",
                   }}
                 >
                   <FiberManualRecordIcon
@@ -149,14 +154,19 @@ const Result = () => {
                 </div>
               ))}
             </div>
-
-            <Typography
-              variant="h6"
-              component="h1"
-              style={{ fontWeight: "bold", paddingTop: 10 }}
+            <div
+              style={{
+                borderTop: "1px solid black",
+              }}
             >
-              Indicators
-            </Typography>
+              <Typography
+                variant="h6"
+                component="h1"
+                style={{ fontWeight: "bold", paddingTop: 10 }}
+              >
+                Indicators
+              </Typography>
+            </div>
 
             <div
               style={{
@@ -164,25 +174,32 @@ const Result = () => {
                 paddingBottom: 5,
               }}
             >
-              {analyze.map((index, idx) => (
-                <li
-                  key={idx}
-                  style={{
-                    paddingBottom: 5,
-                  }}
-                >
-                  <strong>{Object.keys(index)[0]}:</strong>{" "}
-                  {Object.values(index)[0]}
-                </li>
-              ))}
+              {analyze.map((index, idx) => {
+                return (
+                  <li
+                    key={idx}
+                    style={{
+                      paddingBottom: 5,
+                      textAlign: "justify",
+                    }}
+                  >
+                    <strong>{Object.keys(index)[0]}:</strong>{" "}
+                    {Object.values(index)[0]}
+                  </li>
+                );
+              })}
             </div>
           </>
         )}
-
-        <div>
+        <hr />
+        <div
+          style={{
+            borderTop: "1px solid black",
+          }}
+        >
           <Typography
             variant="subtitle1"
-            style={{ fontSize: "0.775rem", color: "#757575" }}
+            style={{ fontSize: "1rem", color: "#757575", paddingTop: 10 }}
           >
             <strong>Disclaimer:</strong> The information provided on this
             platform is for informational purposes only and does not constitute

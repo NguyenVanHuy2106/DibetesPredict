@@ -6,17 +6,22 @@ import {
   Button,
   Typography,
   IconButton,
+  Avatar,
 } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import loginImage from "../../image/imageLogin.jpg"; // Đường dẫn đến hình ảnh
 import logoSignIn from "../../image/LogoUIT.png";
 
+import cun from "../../image/cun.png";
+import quoc from "../../image/quoc.png";
+import nguyen from "../../image/nguyen.png";
+import huy from "../../image/huy.jpg";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const avatars = [cun, quoc, nguyen, huy];
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -35,7 +40,7 @@ const Login = () => {
         localStorage.setItem("role", response.data.user.role);
         //console.log(response);
         if (response.data.user.role === "admin") {
-          window.location.href = "/";
+          window.location.href = "/import-data";
         } else {
           window.location.href = "/predict";
         }
@@ -60,6 +65,7 @@ const Login = () => {
       {/* Phần hình ảnh */}
       <div
         style={{
+          position: "relative",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -74,6 +80,88 @@ const Login = () => {
             objectFit: "cover",
           }}
         />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Màu đen với độ mờ 50%
+            zIndex: 1, // Đảm bảo lớp mờ nằm trên ảnh
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            top: 100,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
+            <Avatar
+              alt="User Avatar"
+              src={cun}
+              style={{
+                width: "60px",
+                height: "60px",
+                border: "2px solid white",
+                marginRight: 10,
+                zIndex: 2,
+              }}
+            />
+            <Avatar
+              alt="User Avatar"
+              src={quoc}
+              style={{
+                width: "60px",
+                height: "60px",
+                border: "2px solid white",
+                marginRight: 10,
+                zIndex: 2,
+              }}
+            />
+            <Avatar
+              alt="User Avatar"
+              src={nguyen}
+              style={{
+                width: "60px",
+                height: "60px",
+                border: "2px solid white",
+                marginRight: 10,
+                zIndex: 2,
+              }}
+            />
+            <Avatar
+              alt="User Avatar"
+              src={huy}
+              style={{
+                width: "60px",
+                height: "60px",
+                border: "2px solid white",
+                zIndex: 2,
+              }}
+            />
+          </div>
+          <div
+            style={{
+              fontWeight: "bold",
+              fontSize: 50,
+              paddingTop: 50,
+              zIndex: 2,
+              color: "#ffffff",
+            }}
+          >
+            Diabetes Prediction Web App
+          </div>
+        </div>
       </div>
 
       {/* Phần thông tin đăng nhập */}
@@ -128,8 +216,7 @@ const Login = () => {
           style={{
             width: "100%",
             maxWidth: "500px",
-            height: "100%",
-            maxHeight: "50px",
+            height: "50px",
           }}
           variant="contained"
           color="primary"

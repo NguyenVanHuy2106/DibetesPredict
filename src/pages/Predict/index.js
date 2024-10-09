@@ -34,8 +34,8 @@ const Predict = () => {
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [HbA1c, setHbA1c] = useState("");
-  const [blood, setBlood] = useState("");
+  // const [HbA1c, setHbA1c] = useState("");
+  // const [blood, setBlood] = useState("");
 
   const handleGenderChange = (event) => {
     setGender(event.target.value);
@@ -49,12 +49,12 @@ const Predict = () => {
   const handleSmoking = (event) => {
     setSmoking(event.target.value);
   };
-  const handleHbA1c = (event) => {
-    setHbA1c(event.target.value);
-  };
-  const handleBlood = (event) => {
-    setBlood(event.target.value);
-  };
+  // const handleHbA1c = (event) => {
+  //   setHbA1c(event.target.value);
+  // };
+  // const handleBlood = (event) => {
+  //   setBlood(event.target.value);
+  // };
 
   const handleAgeChange = (event) => {
     setAge(event.target.value);
@@ -82,9 +82,9 @@ const Predict = () => {
     // };
 
     const requestData = {
-      HbA1c_level: parseFloat(HbA1c), // Kiểu số (float)
+      HbA1c_level: null, // Kiểu số (float)
       age: parseFloat(age), // Kiểu số (float)
-      blood_glucose_level: parseInt(blood, 10), // Kiểu số nguyên (integer)
+      blood_glucose_level: null, // Kiểu số nguyên (integer)
       height: parseInt(height, 10), // Kiểu số nguyên (integer)
       weight: parseInt(weight, 10), // Kiểu số nguyên (integer)
       gender: gender, // Kiểu chuỗi
@@ -162,7 +162,7 @@ const Predict = () => {
         >
           <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
             <WcIcon style={{ marginRight: "8px" }} />
-            <Typography>Gender:</Typography>
+            <Typography>Gender</Typography>
           </Grid>
           <Grid item xs={6}>
             <RadioGroup row value={gender} onChange={handleGenderChange}>
@@ -185,7 +185,7 @@ const Predict = () => {
         >
           <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
             <PersonIcon style={{ marginRight: "8px" }} />
-            <Typography>Age:</Typography>
+            <Typography>Age</Typography>
           </Grid>
           <Grid item xs={6}>
             <TextField
@@ -211,7 +211,7 @@ const Predict = () => {
         >
           <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
             <AssignmentReturnedIcon style={{ marginRight: "8px" }} />
-            <Typography>Weight (kg):</Typography>
+            <Typography>Weight (kg)</Typography>
           </Grid>
           <Grid item xs={6}>
             <TextField
@@ -237,7 +237,7 @@ const Predict = () => {
         >
           <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
             <AccessibilityNewIcon style={{ marginRight: "8px" }} />
-            <Typography>Height (cm):</Typography>
+            <Typography>Height (cm)</Typography>
           </Grid>
           <Grid item xs={6}>
             <TextField
@@ -324,7 +324,7 @@ const Predict = () => {
             </FormControl>
           </Grid>
         </Grid>
-        <Grid
+        {/* <Grid
           container
           spacing={2}
           alignItems="center"
@@ -347,8 +347,8 @@ const Predict = () => {
               }}
             />
           </Grid>
-        </Grid>
-        <Grid
+        </Grid> */}
+        {/* <Grid
           container
           spacing={2}
           alignItems="center"
@@ -371,7 +371,7 @@ const Predict = () => {
               }}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
         <div
           style={{
             display: "flex",

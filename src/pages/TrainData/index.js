@@ -109,8 +109,8 @@ const TrainData = () => {
               <TableCell>Heart Disease</TableCell>
               <TableCell>Smoking History</TableCell>
               <TableCell>BMI</TableCell>
-              <TableCell>HbA1c Level</TableCell>
-              <TableCell>Blood Glucose</TableCell>
+              {/* <TableCell>HbA1c Level</TableCell>
+              <TableCell>Blood Glucose</TableCell> */}
               <TableCell>Diabetes</TableCell>
             </TableRow>
           </TableHead>
@@ -136,14 +136,14 @@ const TrainData = () => {
                   <TableCell>
                     {row.bmi !== undefined ? row.bmi : "N/A"}
                   </TableCell>
-                  <TableCell>
+                  {/* <TableCell>
                     {row.HbA1c_level !== undefined ? row.HbA1c_level : "N/A"}
                   </TableCell>
                   <TableCell>
                     {row.blood_glucose_level !== undefined
                       ? row.blood_glucose_level
                       : "N/A"}
-                  </TableCell>
+                  </TableCell> */}
                   <TableCell>
                     {row.diabetes !== undefined ? row.diabetes : "N/A"}
                   </TableCell>
