@@ -130,7 +130,7 @@ const Result = () => {
             <div
               style={{
                 paddingTop: 15,
-                paddingBottom: 5,
+                paddingBottom: 20,
               }}
             >
               {advise.map((item, index) => (
@@ -156,13 +156,13 @@ const Result = () => {
             </div>
             <div
               style={{
-                borderTop: "1px solid black",
+                borderTop: "0.5px solid #999999",
               }}
             >
               <Typography
                 variant="h6"
                 component="h1"
-                style={{ fontWeight: "bold", paddingTop: 10 }}
+                style={{ fontWeight: "bold", paddingTop: 20 }}
               >
                 Indicators
               </Typography>
@@ -171,7 +171,7 @@ const Result = () => {
             <div
               style={{
                 paddingTop: 15,
-                paddingBottom: 5,
+                paddingBottom: 20,
               }}
             >
               {analyze.map((index, idx) => {
@@ -194,12 +194,12 @@ const Result = () => {
         <hr />
         <div
           style={{
-            borderTop: "1px solid black",
+            borderTop: "0.5px solid #999999",
           }}
         >
           <Typography
             variant="subtitle1"
-            style={{ fontSize: "1rem", color: "#757575", paddingTop: 10 }}
+            style={{ fontSize: "1rem", color: "#757575", paddingTop: 30 }}
           >
             <strong>Disclaimer:</strong> The information provided on this
             platform is for informational purposes only and does not constitute
