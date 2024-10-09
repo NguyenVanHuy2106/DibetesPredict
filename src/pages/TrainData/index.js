@@ -11,7 +11,6 @@ import {
   Typography,
   Container,
   Button,
-  TablePagination,
   TextField,
 } from "@material-ui/core";
 import axios from "../../axiosConfig"; // Import axios configuration
@@ -21,6 +20,7 @@ const TrainData = () => {
   const [page, setPage] = useState(0); // Current page (0-based index)
   const [totalPages, setTotalPages] = useState(0); // Total number of pages
   const navigate = useNavigate();
+
   // Fetch data from API
   const fetchData = async (pageNumber) => {
     try {
@@ -31,17 +31,16 @@ const TrainData = () => {
       console.error("Error fetching data:", error);
     }
   };
+
   const trainModel = async () => {
     try {
       const response = await axios.post("/training-dataset");
-      //console.log(response.status);
       if (response.status === 200) {
-        // Hiển thị thông báo khi train thành công
         const userConfirmed = window.confirm(
           "Train data thành công. Nhấn OK để xem kết quả."
         );
         if (userConfirmed) {
-          navigate("/train-chart"); // Chuyển hướng đến trang TrainChart khi người dùng bấm OK
+          navigate("/train-chart");
         }
       }
     } catch (error) {
@@ -51,18 +50,26 @@ const TrainData = () => {
 
   useEffect(() => {
     fetchData(page + 1); // Fetch data on mount or when page changes (1-based index for API)
-  }, [page]); // Fetch data when page changes
+  }, [page]);
 
-  // Handle page change
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage); // Update page state
-  };
-
-  // Handle input change for direct page selection
+  // Handle page change using input
   const handlePageInputChange = (event) => {
     const inputValue = parseInt(event.target.value);
     if (!isNaN(inputValue) && inputValue > 0 && inputValue <= totalPages) {
       setPage(inputValue - 1); // Update page state (0-based index)
+    }
+  };
+
+  // Handle previous/next page
+  const handlePreviousPage = () => {
+    if (page > 0) {
+      setPage((prevPage) => prevPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (page < totalPages - 1) {
+      setPage((prevPage) => prevPage + 1);
     }
   };
 
@@ -109,8 +116,6 @@ const TrainData = () => {
               <TableCell>Heart Disease</TableCell>
               <TableCell>Smoking History</TableCell>
               <TableCell>BMI</TableCell>
-              {/* <TableCell>HbA1c Level</TableCell>
-              <TableCell>Blood Glucose</TableCell> */}
               <TableCell>Diabetes</TableCell>
             </TableRow>
           </TableHead>
@@ -136,14 +141,6 @@ const TrainData = () => {
                   <TableCell>
                     {row.bmi !== undefined ? row.bmi : "N/A"}
                   </TableCell>
-                  {/* <TableCell>
-                    {row.HbA1c_level !== undefined ? row.HbA1c_level : "N/A"}
-                  </TableCell>
-                  <TableCell>
-                    {row.blood_glucose_level !== undefined
-                      ? row.blood_glucose_level
-                      : "N/A"}
-                  </TableCell> */}
                   <TableCell>
                     {row.diabetes !== undefined ? row.diabetes : "N/A"}
                   </TableCell>
@@ -160,34 +157,49 @@ const TrainData = () => {
         </Table>
       </TableContainer>
 
-      {/* Input for Direct Page Selection */}
+      {/* Pagination Controls */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           marginTop: "10px",
         }}
       >
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handlePreviousPage}
+          disabled={page === 0}
+        >
+          Previous
+        </Button>
         <TextField
           type="number"
           variant="outlined"
           size="small"
+          value={page + 1}
           onChange={handlePageInputChange}
-          style={{ marginRight: "10px", width: "70px" }} // Set width for the input
+          style={{ width: "70px", textAlign: "center" }}
           InputProps={{
             inputProps: { min: 1, max: totalPages },
           }}
         />
-        <TablePagination
-          rowsPerPageOptions={[]} // Hide rows per page options
-          component="div"
-          count={totalPages} // Total number of pages
-          rowsPerPage={data.length} // Show all available data for the current page
-          page={page} // Current page
-          onPageChange={handleChangePage} // Handle page change
-        />
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleNextPage}
+          disabled={page >= totalPages - 1}
+        >
+          Next
+        </Button>
       </div>
+      <Typography
+        variant="caption"
+        style={{ display: "block", textAlign: "right", marginTop: "10px" }}
+      >
+        Page {page + 1} of {totalPages}
+      </Typography>
     </Container>
   );
 };

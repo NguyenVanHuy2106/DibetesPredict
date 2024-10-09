@@ -47,7 +47,7 @@ const Result = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100%",
-        marginTop: "30px",
+        marginTop: "40px",
         marginBottom: "30px",
       }}
     >
@@ -65,6 +65,7 @@ const Result = () => {
           borderRadius: 8,
           width: "100%",
           maxWidth: "1000px",
+          marginTop: 30,
         }}
       >
         <Typography variant="h6" component="h1" style={{ fontWeight: "bold" }}>
@@ -94,18 +95,29 @@ const Result = () => {
           }}
         >
           <FiberManualRecordIcon
-            style={{ height: 10, width: 10, paddingRight: 10 }}
+            style={{
+              height: 10,
+              width: 10,
+              paddingRight: 10,
+            }}
           />
           Prediction Confidence: {dataResult.accuracy}%
         </div>
 
-        <Typography
-          variant="h6"
-          component="h1"
-          style={{ fontWeight: "bold", paddingTop: 10 }}
+        <div
+          style={{
+            borderBottom: "0.5px solid #999999",
+            paddingBottom: 20,
+          }}
         >
-          Recommendations
-        </Typography>
+          <Typography
+            variant="h6"
+            component="h1"
+            style={{ fontWeight: "bold", paddingTop: 10 }}
+          >
+            Recommendations
+          </Typography>
+        </div>
 
         {/* Loading Icon */}
         {loading ? (
@@ -129,7 +141,7 @@ const Result = () => {
           <>
             <div
               style={{
-                paddingTop: 15,
+                paddingTop: 20,
                 paddingBottom: 20,
               }}
             >

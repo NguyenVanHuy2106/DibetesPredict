@@ -64,7 +64,14 @@ const TrainChart = () => {
     fetchDataChart2(); // Fetch data on mount or when page changes (1-based index for API)
   }, [dataChart1]);
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <div>
         <h1>Correlation Feature Importance</h1>
         <BarChart width={600} height={300} data={dataMapped}>

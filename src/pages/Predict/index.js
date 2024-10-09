@@ -22,8 +22,8 @@ import WcIcon from "@material-ui/icons/Wc";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import SmokingRoomsIcon from "@material-ui/icons/SmokingRooms";
-import GrainIcon from "@material-ui/icons/Grain";
-import InvertColorsIcon from "@material-ui/icons/InvertColors";
+// import GrainIcon from "@material-ui/icons/Grain";
+// import InvertColorsIcon from "@material-ui/icons/InvertColors";
 import axios from "../../axiosConfig";
 const Predict = () => {
   const navigate = useNavigate();
