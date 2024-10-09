@@ -21,7 +21,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const avatars = [cun, quoc, nguyen, huy];
+  //const avatars = [cun, quoc, nguyen, huy];
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -38,7 +38,7 @@ const Login = () => {
         localStorage.setItem("access_token", response.data.access_token);
         localStorage.setItem("username", response.data.user.username);
         localStorage.setItem("role", response.data.user.role);
-        //console.log(response);
+        console.log(response);
         if (response.data.user.role === "admin") {
           window.location.href = "/import-data";
         } else {
@@ -95,10 +95,9 @@ const Login = () => {
           style={{
             position: "absolute",
             top: 100,
+            left: 50,
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
           }}
         >
           <div
@@ -110,32 +109,32 @@ const Login = () => {
               alt="User Avatar"
               src={cun}
               style={{
-                width: "60px",
-                height: "60px",
+                width: "50px",
+                height: "50px",
                 border: "2px solid white",
-                marginRight: 10,
-                zIndex: 2,
+                marginRight: -10,
+                zIndex: 4,
               }}
             />
             <Avatar
               alt="User Avatar"
               src={quoc}
               style={{
-                width: "60px",
-                height: "60px",
+                width: "50px",
+                height: "50px",
                 border: "2px solid white",
-                marginRight: 10,
-                zIndex: 2,
+                marginRight: -10,
+                zIndex: 3,
               }}
             />
             <Avatar
               alt="User Avatar"
               src={nguyen}
               style={{
-                width: "60px",
-                height: "60px",
+                width: "50px",
+                height: "50px",
                 border: "2px solid white",
-                marginRight: 10,
+                marginRight: -10,
                 zIndex: 2,
               }}
             />
@@ -143,10 +142,10 @@ const Login = () => {
               alt="User Avatar"
               src={huy}
               style={{
-                width: "60px",
-                height: "60px",
+                width: "50px",
+                height: "50px",
                 border: "2px solid white",
-                zIndex: 2,
+                zIndex: 1,
               }}
             />
           </div>
@@ -154,12 +153,38 @@ const Login = () => {
             style={{
               fontWeight: "bold",
               fontSize: 50,
-              paddingTop: 50,
+              paddingTop: 30,
               zIndex: 2,
               color: "#ffffff",
             }}
           >
-            Diabetes Prediction Web App
+            Diabetes Prediction
+          </div>
+          <div
+            style={{
+              fontWeight: "bold",
+              fontSize: 50,
+              paddingTop: 10,
+              zIndex: 2,
+              color: "#ffffff",
+            }}
+          >
+            Web App
+          </div>
+          <div
+            style={{
+              paddingTop: 10,
+              zIndex: 2,
+              color: "#ffffff",
+              textAlign: "justify",
+              marginRight: 50,
+            }}
+          >
+            Ứng dụng web giúp dự đoán nguy cơ mắc bệnh tiểu đường dựa trên thông
+            tin sức khỏe cá nhân, đồng thời cung cấp các khuyến nghị về lối sống
+            và dinh dưỡng. Hệ thống được thiết kế để hỗ trợ cả Admin trong việc
+            quản lý dữ liệu và huấn luyện mô hình Ai, và Patient trong việc nhận
+            kết quả dự đoán.
           </div>
         </div>
       </div>
@@ -173,6 +198,7 @@ const Login = () => {
           justifyContent: "center", // Căn giữa theo chiều dọc
           alignItems: "center", // Căn giữa theo chiều ngang
           padding: "20px",
+          zIndex: 3,
         }}
       >
         <img
